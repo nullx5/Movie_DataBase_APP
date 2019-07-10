@@ -22,11 +22,15 @@ class Movie(models.Model):
     rating = models.IntegerField(choices=RATINGS, default=NOT_RATED)
     runtime = models.PositiveIntegerField()
     website = models.URLField(blank=True)
+    
+    class Meta:
+        ordering = ('-year', 'title') # Equivale a ORDER BY year DESC, title
 
     def __str__(self):
         return '{} ({})'.format(self.title, self.year) #Access into shell Movie.objects.all() | dir(Sleuth) all methods | dir(Movie.objects) | dir(Movie)
 
 							#Movie.NOT_RATED -> 0 |  test.rating -> 0 
+ 
 #Use python Shell (python manage.py shell - python manage.py dbshell)to Add records to DB. 
 '''
 from core.models import Movie
