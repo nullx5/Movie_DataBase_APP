@@ -1,21 +1,15 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-    <body>
-	<ul>
-	    {% for movie in object_list %}
-		<li><a href="#">{{ movie }}</a></li>
-	    {% empty %} <!--Sino se encuentran values en los campos de los modelos empty se ejecuta-->
-		<li>
-		   <a href="#"> No movies yet.</a>
-		</li>
-	    {% endfor %}
-	</ul>
-	
-	<p>
-	    Using Https?
-	    {{ request.is_secure|yesno}}
-	</p> 
-    </body>
+{% block title %}
+    All the Movies
+{% endblock %}
 
-</html>
+{% block main %}
+    <ul>
+	{% for movie in object_list %}
+	    <li>
+		<a href="{% url 'core:MovieDetail' pk=movie.id %}">{{ movie }}</a>
+	    </li>
+	{% endfor %}
+    </ul>
+{% endblock %}
