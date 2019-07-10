@@ -4,13 +4,14 @@
     <body>
 	<ul>
 	    {% for movie in object_list %}
-		<li>{{ movie }}</li>
-	    {% empty %}
+		<li><a href="#">{{ movie }}</a></li>
+	    {% empty %} <!--Sino se encuentran values en los campos de los modelos empty se ejecuta-->
 		<li>
-		    No movies yet.
+		   <a href="#"> No movies yet.</a>
 		</li>
 	    {% endfor %}
 	</ul>
+	
 	<p>
 	    Using Https?
 	    {{ request.is_secure|yesno}}

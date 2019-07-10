@@ -24,4 +24,25 @@ class Movie(models.Model):
     website = models.URLField(blank=True)
 
     def __str__(self):
-        return '{} ({})'.format(self.title, self.year)
+        return '{} ({})'.format(self.title, self.year) #Access into shell Movie.objects.all() | dir(Sleuth) all methods | dir(Movie.objects) | dir(Movie)
+
+							#Movie.NOT_RATED -> 0 |  test.rating -> 0 
+#Use python Shell (python manage.py shell - python manage.py dbshell)to Add records to DB. 
+'''
+from core.models import Movie
+sleuth =  Movie.objects.create(
+    title="Sleuth",
+    plot="An snobbish writer who loves games"
+    " invites his wife\'s lover for a battle of wits.", 
+    year="1972",
+    runtime="138",
+)
+
+The_Italian_Job =  Movie.objects.create(
+    title="The Italian Job",
+    plot="A comic caper run by a cockney criminal"
+    "centres on hinges on a trafic jam", 
+    year="1969",
+    runtime="99",
+)
+'''
