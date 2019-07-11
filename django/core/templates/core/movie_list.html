@@ -8,7 +8,7 @@
     <ul>
         {% for movie in object_list %}
             <li>
-                <a href="{% url 'core:MovieDetail' pk=movie.id %}">{{ movie }}</a>
+                <a href="{% url 'core:MovieDetail' pk=movie.id %}"></a>
             </li>
         {% endfor %}
     </ul>

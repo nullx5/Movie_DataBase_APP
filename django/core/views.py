@@ -6,9 +6,10 @@ from core.models import Movie
 
 class MovieList(ListView): #All models - work with object_list in the template
      model = Movie
- 
+   # paginate_by = 5
+
 class MovieDetail(DetailView): #Una instancia del modelo  a la vez
-    model = Movie
+     model = Movie
     
 
 # Create your views here.
