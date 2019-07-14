@@ -1,0 +1,71 @@
+from core.models import Movie
+la_jugada_maestra =  Movie.objects.create(
+    title="La jugada Maestra",
+    plot="En una historia englobada en el marco de la Guerra Fría, el estadounidense Bobby Fischer un" 
+        "prodigio del ajedrez, queda atrapado entre dos superpotencias cuando se enfrenta a la Unión "
+        "Soviética. El filme relata la preparación de Fischer para su enfrentamiento con el campeón" 
+        "ruso Boris Spassky, que se disputó en 1972. La partida logro captar la atención del mundo" 
+        "gracias a las dotes ajedrecísticas de ambos jugadores ", 
+    year="2014",
+    runtime="115",
+)
+suenos_de_fuga =  Movie.objects.create(
+    title="Sueños de Fuega",
+    plot="Basada en Rita Hayworth y la redención de Shawshank, novela corta de Stephen King, el film" 
+        "abarca una mirada optimista de la vida, contando la historia de dos amigos, Robbins y" 
+        "Freeman, en una prisión. Se enfatiza el no perder las esperanzas, incluso en las más" 
+        "inhóspitas situaciones.", 
+    year="1994",
+    runtime="142",
+)
+forest_gump = Movie.objects.create(
+    title = "Forest Gump", 
+    plot = "Mientras espera sentado en una parada de autobús, Forrest Gump comienza a relatar la"         
+        "historia de su vida a diversos extraños que se sientan junto a él. Su narración comienza"         
+        "por la infancia, cuando tuvo que llevar unos aparatos ortopédicos en las piernas que"         
+        "provocaron el acoso y la burla de otros niños",
+    year = "1994",
+    runtime = "142",
+)
+pi = Movie.objects.create(
+    title = "Pi", 
+    plot = "El título se refiere a la constante matemática pi. La película explora temas de religión," 
+        "misticismo y la relación del universo con las matemáticas."
+        "La historia, trata sacerca de un matemático con una obsesión por encontrar un orden completo subyacente en el mundo real," 
+        "contrasta dos entidades aparentemente irreconciliables: la humanidad imperfecta e irracional y el rigor y la regularidad de" 
+        "las matemáticas, específicamente la teoría de los números", 
+    year = "1994",
+    runtime = "142",
+)
+mente_brillante = Movie.objects.create(
+    title = "Una Mente Brillante" 
+    plot = "Es una película de drama biográfico estadounidense del año 2001. Basada en la novela homónima de Sylvia Nasar, que fue "
+        "candidata al Premio Pulitzer en 1998, cuenta la vida de John Forbes Nash, ganador del Premio Nobel de Economía en 1994",
+    year = "2001",
+    runtime = "135",
+)
+hombre_infinito = Movie.objects.create(
+    title = "El Hombre que Conocio el Infinito", 
+    plot = "Es una película de drama biográfico británico,  sobre el matemático indio Srinivasa Ramanujan , basada en el libro de 1991 del"
+        "mismo nombre de Robert Kanigel.",
+    year = "2015",
+    runtime = "108",
+)
+enigma = Movie.objects.create(
+    title = "El código Enigma",
+    plot = "Es un biopic bélico estadounidense, con cierto suspense5? de 2014 sobre el matemático, criptoanalista y pionero científico de la"
+        "computación británico Alan Turing. Turing fue una figura clave en el descifrado de los códigos de la máquina Enigma de la"
+        "Alemania Nazi, lo que ayudó a la victoria de los aliados en la Segunda Guerra Mundial.",
+    year = "2015",
+    runtime = "108",
+)
+talentos_ocultos = Movie.objects.create(
+    title = "Talentos Ocultos",
+    plot = "La película cuenta la historia de la matemática afroamericana Katherine Johnson y sus dos colegas, Dorothy Vaughan y Mary"
+        "Jackson, quienes mientras trabajaban en la División Segregada de Cálculo del Ala Oeste del Centro de Investigación Langley," 
+        "ayudaron a la NASA en la Carrera Espacial.5? Utilizando sus cálculos, John Glenn se convirtió en el primer astronauta" 
+        "estadounidense en hacer una órbita completa de la Tierra.",
+    year = "2015",
+    runtime = "108",
+)
+
