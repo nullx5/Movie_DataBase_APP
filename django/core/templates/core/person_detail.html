@@ -9,9 +9,9 @@
     <h1> {{ object }} </h1>
     <h2> Actor </h2>
     <ul>
-        {% for role in object.role_set.all %}
+        {% for role in object.role_set.all %} {# Tambien se puede usar -> person.role_set.all #}
             <li>
-                <a href="{% url 'core:MovieDetail' role.movie.id %}">{{ role.movie }}</a>: {{ role.movie }}
+                <a href="{% url 'core:MovieDetail' role.movie.id %}">{{ role.movie }}</a>: {{ role.name }}
             </li>
         {% endfor %}
     </ul>
