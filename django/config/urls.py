@@ -21,8 +21,8 @@ import core.urls
 import user.urls
 
 urlpatterns = [
-    path('user/', include(user.urls, namespace = 'user')),
     path('admin/', admin.site.urls),
+    path('user/', include(user.urls, namespace = 'user')),
     path('', include(core.urls, namespace= 'core')), #	Acceso a las path de nuestra app core.
 
 ]
