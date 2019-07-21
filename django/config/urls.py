@@ -18,8 +18,10 @@ from django.urls import path, include
 
 #Importamos el URLConf de nuestra app core/urls.py
 import core.urls
+import user.urls
 
 urlpatterns = [
+    path('user/', include(user.urls, namespace = 'user')),
     path('admin/', admin.site.urls),
     path('', include(core.urls, namespace= 'core')), #	Acceso a las path de nuestra app core.
 
