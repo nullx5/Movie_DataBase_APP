@@ -16,4 +16,17 @@
 	    {{ object.get_rating_display}}
 	</span>
     </div>
+    <div>
+    {% if vote_form %}
+        <form method="post" action="{{ vote_form_url }}">
+            {% csrf_token %}
+            {{ vote_form.as_p }}
+            <button class="btn btn-primary">
+                Vote
+            </button> 
+    {% else %}
+        <p>Log in to vote for this movie </p>     
+        </form>
+    {% endif %}
+    </div>
 {% endblock %}
