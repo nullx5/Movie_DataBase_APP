@@ -1,4 +1,4 @@
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views # auth tambien proporciona log in/out se encarga de la vista por nosotros
 from django.urls import path
 from user import views
 
