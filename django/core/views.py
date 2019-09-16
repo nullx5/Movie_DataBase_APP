@@ -17,13 +17,16 @@ class MovieList(ListView): #All models - work with object_list in the template
 
 class MovieDetail(DetailView): #Una instancia del modelo  a la vez
     #model = Movie
+    """get the user's vote for the movie, instantiate the form, and know which URL to
+       ubmit the vote to (create_vote or update_vote).
+    """
     queryset = (Movie.objects.all_with_related_persons())
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
-            vote = Vote.objects.get_vote_or_unsaved_blank_vote(movie = self.object, user = self.request.user)
+            vote = Vote.objects.get_vote_or_unsaved_blank_vote(movie = self.object, user = self.request.user) #Obtiene movie y usuario
             if vote.id:
-                vote_form_url = reverse("core:Update", kwargs = {"movie_id": vote.movie.id, "pk": vote.id})
+                vote_form_url = reverse('core:UpdateVote', kwargs = {'movie_id': vote.movie.id, "pk": vote.id})
             else:
                 vote_form_url = (reverse("core:CreateVote", kwargs = {"movie_id":self.object.id}))
             vote_form = VoteForm(instance = vote)
@@ -67,9 +70,9 @@ class UpdateVote(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         movie_id = self.object.movie.id
-        return reverse("core:MovieDetail", kwargs={"pk": movie_id})
+        return reverse('core:MovieDetail', kwargs={'pk': movie_id})
 
     def render_to_response(self, context, **response_kwargs):
-        movie_id = context["object"].id
-        movie_datail_url = reverse("core:MovieDetail", kwargs={"pk": movie_id})
-        return redirect(to=movie_detailurl)
+        movie_id = context['object'].id
+        movie_datail_url = reverse('core:MovieDetail', kwargs={'pk': movie_id})
+        return redirect(to=movie_detail_url)

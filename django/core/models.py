@@ -3,7 +3,7 @@ from django.conf import settings #AUTH_USER_MODEL
 # Create your models here.
 """
 NOTA:
-	Acceso a todos los registros ->  Movie.objects.all() | dir(Sleuth) all methods | dir(Movie.objects) | dir(Movie)
+	Acceso a todos los registros ->  Movie.objects.all() | crear registros sleuth = Movie.objects.create() | dir(Sleuth) all methods | dir(Movie.objects) | dir(Movie)
 	Movie.NOT_RATED -> 0 |  test.rating -> 0-  mismo resultado
 	atributo ordering de clase Meta  Equivale a ORDER BY year DESC, title;
 	OJO: El orden de las clases importa, clase <Role> de la relacion ManyToManyField Movie to Person va al final | NameError: name 
@@ -93,7 +93,7 @@ class VoteManager(models.Manager):
 
         except Vote.DoesNotExist:
 
-            return Vote(movie=movie, user=user)
+            return Vote(movie=movie, user=user) # El uso del constructor crea un nuevo modelo en la memoria pero no en la base de datos. A diferencia del método create () de su manager.
 
 class Vote(models.Model):
     UP = 1
