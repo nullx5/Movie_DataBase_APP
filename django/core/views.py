@@ -53,7 +53,7 @@ class CreateVote(LoginRequiredMixin, CreateView):
     def render_to_response(self, context, **response_kwargs):
         movie_id = context["object"].id
         movie_detail_url = reverse("core:MovieDetail", kwargs={"pk": movie_id})
-        return redirect(to=movie_detail_url)
+        return redirect(to=movie_detail_url) #redireccion despues de votar
  
 
 class UpdateVote(LoginRequiredMixin, UpdateView):
@@ -75,4 +75,4 @@ class UpdateVote(LoginRequiredMixin, UpdateView):
     def render_to_response(self, context, **response_kwargs):
         movie_id = context['object'].id
         movie_datail_url = reverse('core:MovieDetail', kwargs={'pk': movie_id})
-        return redirect(to=movie_detail_url)
+        return redirect(to=movie_detail_url)#redireccion despues de actualizar voto

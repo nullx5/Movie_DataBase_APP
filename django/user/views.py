@@ -11,6 +11,6 @@ class RegisterView(CreateView):
     """
     template_name = 'user/register.html' #usa variable form en el template
     form_class = UserCreationForm # los modelos simples son model = MyModel, Pero un user es más complejo, UserCreationForm se encarga del modelo por nosotros
-    success_url = reverse_lazy('core:MovieList') # Cuando la creación del modelo tiene éxito, esta es la URL a la que debe redirigir
+    success_url = reverse_lazy('user:login') # Cuando la creación del modelo tiene éxito, esta es la URL a la que debe redirigir
 
 
