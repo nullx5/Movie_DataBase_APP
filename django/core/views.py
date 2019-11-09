@@ -16,12 +16,13 @@ class MovieList(ListView): #All models - work with object_list in the template
      paginate_by = 5
 
 class MovieDetail(DetailView): #Una instancia del modelo  a la vez
-    #model = Movie
+   
     """get the user's vote for the movie, instantiate the form, and know which URL to
        ubmit the vote to (create_vote or update_vote).
     """
-    queryset = (Movie.objects.all_with_related_persons())
-    def get_context_data(self, **kwargs):
+    queryset = (Movie.objects.all_with_related_persons_and_score())  # cumple misma funcion que model = Movie
+    
+    def get_context_data(self, **kwargs):# get_context_data Obtiene datos del contexto variables, objectos, etc, que le vas a pasar al template 
         ctx = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             vote = Vote.objects.get_vote_or_unsaved_blank_vote(movie = self.object, user = self.request.user) #Obtiene movie y usuario
@@ -33,7 +34,7 @@ class MovieDetail(DetailView): #Una instancia del modelo  a la vez
             ctx["vote_form"] = vote_form
             ctx["vote_form_url"] = vote_form_url
         return ctx
-
+    
 class PersonDetail(DetailView):
     queryset = Person.objects.all_with_prefetch_movies()
 

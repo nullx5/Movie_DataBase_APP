@@ -1,5 +1,6 @@
 from django.db import models #define the fields
 from django.conf import settings #AUTH_USER_MODEL
+from django.db.models.aggregates import Sum
 # Create your models here.
 """
 NOTA:
@@ -35,6 +36,15 @@ class MovieManager(models.Manager):
         qs = qs.select_related('director')
         qs = qs.prefetch_related('writers', 'actors')
         return qs
+    
+    def all_with_related_persons_and_score(self):
+        """
+             Django abstracts most common
+                SQL aggregate functions, including Sum, Count and Average
+        """
+        qs = self.all_with_related_persons()
+        qs = qs.annotate(score=Sum("vote__value"))
+        return qs   
 
 class Movie(models.Model):
     """
