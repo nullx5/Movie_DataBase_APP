@@ -20,9 +20,18 @@ from django.urls import path, include
 import core.urls
 import user.urls
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+"""
+Django will know how to route to our view, but it doesn't know how to serve the
+uploaded files
+"""
+MEDIA_FILE_PATHS = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include(user.urls, namespace = 'user')),
     path('', include(core.urls, namespace= 'core')), #	Acceso a las path de nuestra app core.
 
-]
+] + MEDIA_FILE_PATHS

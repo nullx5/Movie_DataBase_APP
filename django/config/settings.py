@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', #Habilitado para archivos estaticos
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/uploaded/' #Es la URL que servirá los archivos cargados
+"""
+MEDIA_ROOT : ruta al directorio donde Django guarda el código, este directorio no debe estar bajo 
+nuestro directorio de códigos para que no se registre accidentalmente en el control de versiones
+"""
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root') 
+
 LOGIN_REDIRECT_URL = 'core:MovieList'
 #LOGIN_REDIRECT_URL = 'user:login'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+

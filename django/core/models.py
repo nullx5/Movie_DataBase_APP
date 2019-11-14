@@ -1,6 +1,10 @@
 from django.db import models #define the fields
 from django.conf import settings #AUTH_USER_MODEL
-from django.db.models.aggregates import Sum
+from django.db.models.aggregates import Sum #Funciones de agregacion SQL
+
+from uuid import uuid4
+
+
 # Create your models here.
 """
 NOTA:
@@ -122,3 +126,18 @@ class Vote(models.Model):
 
     class Meta:
         unique_together = ("user", "movie")
+
+def movie_directory_path_with_uuid(
+        instance, filename):
+    return '{}/{}.{}'.format(
+        instance.movie_id,
+        uuid4(),
+        filename.split('.')[-1]
+    )
+
+
+class MovieImage(models.Model):
+    image = models.ImageField(upload_to=movie_directory_path_with_uuid)
+    uploaded = models.DateTimeField(auto_now_add=True)
+    movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
